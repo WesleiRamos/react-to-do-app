@@ -1,0 +1,123 @@
+body {
+  --text-color: #000000;
+  --body-background: #f0f0f0;
+  --background-color: rgb(215, 215, 215);
+  --background-color-hover: rgb(235, 235, 235);
+
+  &.dark {
+    --text-color: #ffffff;
+    --body-background: rgb(65, 65, 65);
+    --background-color: rgb(40, 40, 40);
+    --background-color-hover: rgb(20, 20, 20);
+  }
+
+  background-color: var(--body-background);
+  transition: .2s;
+}
+
+.app {
+  width: 50vw;
+  margin: auto {
+    left: 25vw;
+  }
+
+  > * {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .header {
+    color: var(--text-color);
+    text-transform: uppercase;
+    padding: 20px 0;
+
+    img {
+      width: 200px;
+    }
+  }
+
+  .insert {
+    .custom-input {
+      display: inline-block;
+      background-color: var(--background-color);
+      padding: 5px;
+      border-radius: 5px;
+
+      input, button {
+        background-color: transparent;
+        outline: none;
+        border: none;
+        font-size: 25px;
+        color: var(--text-color);
+      }
+
+      button {
+        cursor: pointer;
+        border-radius: inherit;
+        padding: 5px 10px;
+      }
+
+      button:hover {
+        background-color: var(--background-color-hover);
+      }
+    }
+  }
+
+  .list-todo {
+    width: 100%;
+    height: calc(100vh - 300px);
+    margin-top: 20px;
+    color: var(--text-color);
+    overflow-y: auto;
+
+    .item {
+      box-sizing: border-box;
+      background-color: var(--background-color);
+      border-radius: 5px;
+      margin-bottom: 10px;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        background-color: transparent;
+        border: none;
+        color: rgb(196, 59, 59);
+        font-size: 20px;
+        padding: 5px 10px;
+      }
+    }
+  }
+
+  .switch-theme {
+    background-color: var(--background-color);
+    border-radius: 20px;
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 30px;
+
+    span {
+      display: block;
+      background-color: var(--text-color);
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      position: absolute;
+      top: 5px;
+      left: 36px;
+      transition: cubic-bezier(0.68, -0.55, 0.27, 01.55) 320ms;
+    }
+
+    input {
+      display: none;
+    }
+
+    input:checked + span {
+      left: 4px;
+    }
+  }
+}
